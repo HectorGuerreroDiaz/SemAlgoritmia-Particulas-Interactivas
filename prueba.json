@@ -1,0 +1,13 @@
+[
+     {
+          "id": "123",
+          "origenX": 12,
+          "origenY": 45,
+          "destinoX": 13,
+          "destinoY": 46,
+          "velocidad": 7,
+          "red": 25,
+          "green": 26,
+          "blue": 24
+     }
+]
