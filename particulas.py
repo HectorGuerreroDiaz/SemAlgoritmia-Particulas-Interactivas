@@ -15,6 +15,33 @@ class Particula:
         self.__green=green
         self.__blue=blue
 
+    @property
+    def id(self):
+        return self.__id
+
+    @property
+    def origenX(self):
+        return self.__origenX
+    @property
+    def origenY(self):
+        return self.__origenY
+
+    @property
+    def destinoX(self):
+        return self.__destinoX
+    
+    @property
+    def destinoY(self):
+        return self.__destinoY
+
+    @property
+    def velocidad(self):
+        return self.__velocidad
+    
+    @property
+    def RGB(self):
+        return str(self.__red) + "," + str(self.__green) + "," + str(self.__blue)
+
     def __str__(self):
         return(
             'ID: '+ str(self.__id) + '\n'+
@@ -61,6 +88,21 @@ class ListaParticula:
         return "".join(
             str(particula) + '\n' for particula in self.__particulas
         ) 
+
+    def __len__(self):
+        return len(self.__particulas)
+
+    def __iter__(self):
+        self.cont = 0
+        return self
+
+    def __next__(self):
+        if self.cont < len(self.__particulas):
+            particula = self.__particulas[self.cont]
+            self.cont += 1
+            return particula
+        else:
+            raise StopIteration
 
     def guardar(self, ubicacion):
         try:

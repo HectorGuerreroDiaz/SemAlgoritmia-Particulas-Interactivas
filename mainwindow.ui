@@ -6,199 +6,251 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>408</width>
-    <height>382</height>
+    <width>448</width>
+    <height>395</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QGroupBox" name="groupBox">
-      <property name="title">
-       <string>Particula</string>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>1</number>
       </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>ID: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1" colspan="8">
-        <widget class="QLineEdit" name="ID_lineEdit"/>
-       </item>
-       <item row="0" column="9" rowspan="11">
-        <widget class="QPlainTextEdit" name="salida"/>
-       </item>
-       <item row="1" column="0" colspan="6">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Origen en X:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="7" colspan="2">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>Destino en X:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0" colspan="5">
-        <widget class="QSpinBox" name="origenX_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="7" colspan="2">
-        <widget class="QSpinBox" name="destinoX_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" colspan="5">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Origen en Y:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="7" colspan="2">
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>Destino en Y:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0" colspan="4">
-        <widget class="QSpinBox" name="origenY_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="7" colspan="2">
-        <widget class="QSpinBox" name="destinoY_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="4">
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Velocidad:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="5" colspan="4">
-        <widget class="QSpinBox" name="velocidad_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="3" colspan="5">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>Color (R G B)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0" colspan="2">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>Red:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="4" colspan="3">
-        <widget class="QLabel" name="label_9">
-         <property name="text">
-          <string>Green:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="8">
-        <widget class="QLabel" name="label_10">
-         <property name="text">
-          <string>Blue:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0" colspan="3">
-        <widget class="QSpinBox" name="red_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="4" colspan="4">
-        <widget class="QSpinBox" name="green_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="8">
-        <widget class="QSpinBox" name="blue_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0" colspan="5">
-        <widget class="QPushButton" name="agregarFinal_pushButton">
-         <property name="text">
-          <string>Agregar final</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="6" colspan="3">
-        <widget class="QPushButton" name="agregarInicio_pushButton">
-         <property name="text">
-          <string>Agregar inicio</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="2" colspan="6">
-        <widget class="QPushButton" name="mostrar_pushButton">
-         <property name="text">
-          <string>Mostrar</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Agregar</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Particula</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="4" column="7" colspan="2">
+            <widget class="QSpinBox" name="destinoY_spinBox">
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="5" colspan="4">
+            <widget class="QSpinBox" name="velocidad_spinBox">
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="6">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Origen en X:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="7" colspan="2">
+            <widget class="QSpinBox" name="destinoX_spinBox">
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>ID: </string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0" colspan="5">
+            <widget class="QPushButton" name="agregarFinal_pushButton">
+             <property name="text">
+              <string>Agregar final</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="2" colspan="6">
+            <widget class="QPushButton" name="mostrar_pushButton">
+             <property name="text">
+              <string>Mostrar</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="4" colspan="4">
+            <widget class="QSpinBox" name="green_spinBox">
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0" colspan="2">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Red:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="8">
+            <widget class="QLineEdit" name="ID_lineEdit"/>
+           </item>
+           <item row="9" column="6" colspan="3">
+            <widget class="QPushButton" name="agregarInicio_pushButton">
+             <property name="text">
+              <string>Agregar inicio</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="4">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>Velocidad:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="4" colspan="3">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Green:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="4">
+            <widget class="QSpinBox" name="origenY_spinBox">
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="7" colspan="2">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Destino en Y:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="3">
+            <widget class="QSpinBox" name="red_spinBox">
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="5">
+            <widget class="QSpinBox" name="origenX_spinBox">
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="9" rowspan="11">
+            <widget class="QPlainTextEdit" name="salida">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>0</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="3" colspan="5">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Color (R G B)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="5">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Origen en Y:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="8">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Blue:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="7" colspan="2">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Destino en X:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="8">
+            <widget class="QSpinBox" name="blue_spinBox">
+             <property name="maximum">
+              <number>500</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Tabla</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0" colspan="3">
+         <widget class="QTableWidget" name="tabla"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLineEdit" name="buscar_lineEdit">
+          <property name="placeholderText">
+           <string>Titulo del libro</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="buscar_pushButton">
+          <property name="text">
+           <string>Buscar</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QPushButton" name="mostrar_tabla_pushButton">
+          <property name="text">
+           <string>Mostrar</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -209,7 +261,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>408</width>
+     <width>448</width>
      <height>21</height>
     </rect>
    </property>
