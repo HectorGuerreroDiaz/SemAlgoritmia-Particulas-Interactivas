@@ -37,6 +37,10 @@ class Particula:
     @property
     def velocidad(self):
         return self.__velocidad
+
+    @property
+    def distancia(self):
+        return self.__distancia
     
     @property
     def RGB(self):

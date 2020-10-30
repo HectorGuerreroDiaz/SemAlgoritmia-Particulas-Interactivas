@@ -23,8 +23,16 @@ class MainWindow(QMainWindow):
         self.ui.mostrar_tabla_pushButton.clicked.connect(self.mostrar_tabla)
         self.ui.buscar_pushButton.clicked.connect(self.buscar_id)
 
+        self.table()
+
+    def table(self):
+        self.ui.tabla.setColumnCount(8)
+        headers = ["ID","OrigenX","OrigenY","DestinoX","DestinoY","Velocidad","Distancia","RGB"]
+        self.ui.tabla.setHorizontalHeaderLabels(headers)    
+
     def mostrar_particulas(self,todos,id):
         self.ui.tabla.clear()
+        self.table()
 
         row = 0
         encontrado = False
@@ -42,6 +50,7 @@ class MainWindow(QMainWindow):
                 destinoX_widget = QTableWidgetItem(str(Particula.destinoX))
                 destinoY_widget = QTableWidgetItem(str(Particula.destinoY))
                 velocidad_widget = QTableWidgetItem(str(Particula.velocidad))
+                distancia_widget = QTableWidgetItem(str(Particula.distancia))
                 RGB_widget = QTableWidgetItem(str(Particula.RGB))
 
                 self.ui.tabla.setItem(row, 0, id_widget)
@@ -50,7 +59,8 @@ class MainWindow(QMainWindow):
                 self.ui.tabla.setItem(row, 3, destinoX_widget)
                 self.ui.tabla.setItem(row, 4, destinoY_widget)
                 self.ui.tabla.setItem(row, 5, velocidad_widget)
-                self.ui.tabla.setItem(row, 6, RGB_widget)
+                self.ui.tabla.setItem(row, 6, distancia_widget)
+                self.ui.tabla.setItem(row, 7, RGB_widget)
 
                 encontrado = True
                 if todos == False:
@@ -69,16 +79,11 @@ class MainWindow(QMainWindow):
     @Slot()
     def buscar_id(self):
         id = self.ui.buscar_lineEdit.text()
-
         self.mostrar_particulas(False,id)
                 
 
     @Slot()
     def mostrar_tabla(self):
-        self.ui.tabla.setColumnCount(6)
-        headers = ["ID","OrigenX","OrigenY","DestinoX","DestinoY","Velocidad","RGB"]
-        self.ui.tabla.setHorizontalHeaderLabels(headers)
-        
         self.mostrar_particulas(True,0)
             
             
