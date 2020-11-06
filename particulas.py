@@ -4,6 +4,7 @@ import json
 
 class Particula:
     def __init__(self, id=0, origenX=0, origenY=0, destinoX=0, destinoY=0, velocidad=0, red=0, green=0, blue=0, distancia=0.0):
+        self.__distancia = distancia
         self.__distancia = distancia_euclidiana(origenX, destinoX, origenY, destinoY)
         self.__id=id
         self.__origenX=origenX
@@ -43,8 +44,16 @@ class Particula:
         return self.__distancia
     
     @property
-    def RGB(self):
-        return str(self.__red) + "," + str(self.__green) + "," + str(self.__blue)
+    def red(self):
+        return str(self.__red)
+
+    @property
+    def green(self):
+        return str(self.__green)
+
+    @property
+    def blue(self):
+        return str(self.__blue)
 
     def __str__(self):
         return(
