@@ -69,6 +69,10 @@ class Particula:
             'Blue: '+ str(self.__blue) + '\n'
         )
 
+    def __lt__(self, other):
+        return self.__id < other.id
+
+
     def to_dict(self):
         return {
             "id" : self.__id,
@@ -134,6 +138,18 @@ class ListaParticula:
             return 1
         except:
             return 0
+
+    def sort_by_id(self):
+        self.__particulas.sort(key=lambda particula: particula.id)
+
+    def sort_by_Distancia(self):
+        self.__particulas.sort(key=lambda particula: particula.distancia, reverse=True)
+
+    def sort_by_Velocidad(self):
+        self.__particulas.sort(key=lambda particula: particula.velocidad)
+
+
+    
 
 
 
