@@ -5,13 +5,14 @@ from PySide2.QtGui import QPen, QColor, QTransform
 from particulas import Particula
 from particulas import ListaParticula
 from random import randint
+from pprint import pprint, pformat
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__() #Se llama a la ventana
         
         self.administrador = ListaParticula()
-
+        
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         #Conexión del Slot
@@ -21,6 +22,7 @@ class MainWindow(QMainWindow):
 
         self.ui.actionAbrir.triggered.connect(self.action_abrir_archivo)
         self.ui.actionGuardar.triggered.connect(self.action_guardar_archivo)
+        self.ui.actionGrafo.triggered.connect(self.to_graph)
 
         self.ui.mostrar_tabla_pushButton.clicked.connect(self.mostrar_tabla)
         self.ui.buscar_pushButton.clicked.connect(self.buscar_id)
@@ -39,6 +41,43 @@ class MainWindow(QMainWindow):
         self.ui.order_distancia.clicked.connect(self.sort_distancia)
 
     #-------------------------------------- GRAFICOS -------------------------------------------
+
+    @Slot()
+    def to_graph(self):
+        grafo = dict()
+
+        for particula in self.administrador:
+            origen = (particula.origenX, particula.origenY)
+            destino = (particula.destinoX, particula.destinoY)
+            distancia = (particula.distancia)
+
+            arista_origen = (origen,distancia)
+            arista_destino = (destino,distancia)
+
+            print('origen')
+            print(origen)
+            print('destino')
+            print(destino)
+
+            if origen in grafo:
+                grafo[origen].append(arista_destino)
+            else:
+                grafo[origen] = [arista_destino]
+            if destino in grafo:
+                grafo[destino].append(arista_origen)
+            else:
+                grafo[destino] = [arista_origen]
+
+            strFormateado = pformat(grafo, width=40)
+            strFormateado += '\n'
+            
+
+        self.ui.salida.clear()
+        self.ui.salida.insertPlainText(strFormateado)
+        
+
+
+
 
     def sort_id(self):
         self.administrador.sort_by_id()
