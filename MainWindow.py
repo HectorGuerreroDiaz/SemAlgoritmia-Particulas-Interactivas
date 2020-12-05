@@ -12,6 +12,8 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__() #Se llama a la ventana
         
         self.administrador = ListaParticula()
+        self.grafo = dict()
+        
         
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -23,6 +25,9 @@ class MainWindow(QMainWindow):
         self.ui.actionAbrir.triggered.connect(self.action_abrir_archivo)
         self.ui.actionGuardar.triggered.connect(self.action_guardar_archivo)
         self.ui.actionGrafo.triggered.connect(self.to_graph)
+        self.ui.actionGrafo.triggered.connect(self.ShowGraphText)
+        self.ui.actionBusqueda_profundidad.triggered.connect(self.recorrido_amplitud)
+        self.ui.actionBusqueda_profundidad.triggered.connect(self.recorrido_profundidad)
 
         self.ui.mostrar_tabla_pushButton.clicked.connect(self.mostrar_tabla)
         self.ui.buscar_pushButton.clicked.connect(self.buscar_id)
@@ -40,11 +45,88 @@ class MainWindow(QMainWindow):
         self.ui.order_velocidad.clicked.connect(self.sort_velocidad)
         self.ui.order_distancia.clicked.connect(self.sort_distancia)
 
+    #------------------------------------- Recorridos------------------------------------------
+
+    @Slot()
+    def recorrido_profundidad(self):
+        visitados = []
+        pila = []
+        recorrido = []
+
+        self.to_graph()
+
+        #-----origenes
+        x = self.ui.origenX_spinBox.value()
+        y = self.ui.origenY_spinBox.value()
+        visitados.append((x,y))
+        pila.append((x,y)) #no se si se equivalente a push
+
+        #----Resolver
+        while pila:
+            padre = pila[0] #no se si sea front o dequeue
+            recorrido.append(padre)
+            del pila[0]
+
+            adyacentes = self.grafo[padre]
+            for ady in adyacentes:
+                if ady[0] not in visitados:
+                    visitados.append(ady[0])
+                    pila.append(ady[0])
+
+        #----Imprimir resultados
+        print(visitados)
+        #self.ui.salida.clear() #s = pprint.pformat(grafo,width = 40)
+        self.ui.salida.appendPlainText("profundidad")
+        self.ui.salida.appendPlainText(str(recorrido))
+
+
+
+
+
+
+
+    @Slot()
+    def recorrido_amplitud(self):
+        visitados = []
+        cola = []
+        recorrido = []
+
+        self.to_graph()
+
+        #-----origenes
+        x = self.ui.origenX_spinBox.value()
+        y = self.ui.origenY_spinBox.value()
+        visitados.append((x,y))
+        cola.append((x,y)) #no se si se equivalente a push
+
+        #----Resolver
+        while cola:
+            padre = cola[-1] #no se si sea front o dequeue
+            recorrido.append(padre)
+            del cola[-1]
+
+            adyacentes = self.grafo[padre]
+            for ady in adyacentes:
+                if ady[0] not in visitados:
+                    visitados.append(ady[0])
+                    cola.append(ady[0])
+
+        #----Imprimir resultados
+        print(visitados)
+        #self.ui.salida.clear() #s = pprint.pformat(grafo,width = 40)
+        self.ui.salida.appendPlainText("amplitud")
+        self.ui.salida.appendPlainText(str(recorrido))
+
+
+           
+                    
+
+
+
     #-------------------------------------- GRAFICOS -------------------------------------------
 
     @Slot()
     def to_graph(self):
-        grafo = dict()
 
         for particula in self.administrador:
             origen = (particula.origenX, particula.origenY)
@@ -59,18 +141,22 @@ class MainWindow(QMainWindow):
             print('destino')
             print(destino)
 
-            if origen in grafo:
-                grafo[origen].append(arista_destino)
+            if origen in self.grafo:
+                self.grafo[origen].append(arista_destino)
             else:
-                grafo[origen] = [arista_destino]
-            if destino in grafo:
-                grafo[destino].append(arista_origen)
+                self.grafo[origen] = [arista_destino]
+            if destino in self.grafo:
+                self.grafo[destino].append(arista_origen)
             else:
-                grafo[destino] = [arista_origen]
+                self.grafo[destino] = [arista_origen]
 
-            strFormateado = pformat(grafo, width=40)
-            strFormateado += '\n'
             
+
+    @Slot()
+    def ShowGraphText(self):
+        
+        strFormateado = pformat(self.grafo, width=40)
+        strFormateado += '\n'
 
         self.ui.salida.clear()
         self.ui.salida.insertPlainText(strFormateado)

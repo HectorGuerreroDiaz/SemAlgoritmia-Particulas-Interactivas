@@ -326,6 +326,7 @@
     <addaction name="actionAbrir"/>
     <addaction name="actionGuardar"/>
     <addaction name="actionGrafo"/>
+    <addaction name="actionBusqueda_profundidad"/>
    </widget>
    <addaction name="menuArchivo"/>
   </widget>
@@ -351,6 +352,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionBusqueda_profundidad">
+   <property name="text">
+    <string>Busqueda profundidad</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
    </property>
   </action>
  </widget>
